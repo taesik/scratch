@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app"></div>
+<script>
+  // TODO  ex ) deviceName(
+  // TODO   ['mixer','dd','mixer','dd','a','dd',]
+  // TODO)
+  // TODO should return ["mixer", "dd", "mixer1", "dd1", "a", "dd2"]
+  // TODO first element should be same, and after duplicates occured number must be added (initially 1.)
+
+  function deviceName(deviceNames) {
+    let names = [];
+
+
+    for(let name of deviceNames) {
+      if(names.indexOf(name) !==-1){
+        names.push(name + names.filter((_)=>
+           _.replace(/\d/,'')=== name)
+           .length
+           .toString()
+        )
+      }
+      if(names.indexOf(name) === -1){
+        names.push(name);
+      }
+    }
+    return names;
+  }
+
+    //test
+  console.log(deviceName(['mixer','dd','mixer','dd','a','dd',]));
+</script>
+</body>
+</html>
